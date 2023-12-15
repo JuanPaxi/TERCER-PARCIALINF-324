@@ -1,0 +1,8 @@
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\bin\Debug\cliente_3.exe.config
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\bin\Debug\cliente_3.exe
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\bin\Debug\cliente_3.pdb
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\obj\Debug\cliente_3.Form1.resources
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\obj\Debug\cliente_3.Properties.Resources.resources
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\obj\Debug\cliente_3.csproj.GenerateResource.Cache
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\obj\Debug\cliente_3.exe
+c:\users\admin\documents\visual studio 2012\Projects\cliente_3\cliente_3\obj\Debug\cliente_3.pdb

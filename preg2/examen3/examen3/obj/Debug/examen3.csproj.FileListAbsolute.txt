@@ -1,0 +1,5 @@
+c:\users\admin\documents\visual studio 2012\Projects\examen3\examen3\bin\examen3.dll
+c:\users\admin\documents\visual studio 2012\Projects\examen3\examen3\bin\examen3.pdb
+c:\users\admin\documents\visual studio 2012\Projects\examen3\examen3\obj\Debug\examen3.csprojResolveAssemblyReference.cache
+c:\users\admin\documents\visual studio 2012\Projects\examen3\examen3\obj\Debug\examen3.dll
+c:\users\admin\documents\visual studio 2012\Projects\examen3\examen3\obj\Debug\examen3.pdb
