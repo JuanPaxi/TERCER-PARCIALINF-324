@@ -1,0 +1,124 @@
+<html>
+<head>
+    <meta charset=utf-8>
+    <title>Arbolito de Navidad</title>
+</head>
+
+<body>
+    
+    <div >
+        <label><input type="checkbox" id="animacion"> <b></b></label>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r83/three.js"></script>
+    <script>
+        var sw = -1;
+        function animacionCheckbox() {
+          sw *= -1;
+        }
+        function arbol(){
+            for(var i= 1; i < 9; i++){
+                var geometry = new THREE.ConeGeometry( 3+(i*2), 10, 22 ); 
+                var material = new THREE.MeshBasicMaterial( {color:  0x44D305} );
+                var cone = new THREE.Mesh(geometry, material ); scene.add( cone );
+                cone.position.set(0,40-(i*5),0);
+                container.add(cone); 
+            }
+            container.position.set(0,8,0);
+            for(var i= 1; i < 9; i++){
+                var geometry = new THREE.ConeGeometry( 4+(i*2), 10, 22 ); 
+                var material = new THREE.MeshBasicMaterial( {color: 0x44D305 } );
+                var cone = new THREE.Mesh(geometry, material ); scene.add( cone );
+                cone.position.set(0,37-(i*5),0);
+                container.add(cone); 
+            }
+        }
+        function estrella(){
+            var geometry = new THREE.ConeGeometry( 5, 5, 3); 
+            var material = new THREE.MeshBasicMaterial( {color: 0xFCDE00} );
+            var star = new THREE.Mesh(geometry, material ); scene.add( star );
+            star.position.set(0,39,0);
+            container.add(star);
+            star.rotation.x = Math.PI;
+            var star = new THREE.Mesh(geometry, material ); scene.add( star );
+            star.position.set(0,41,0);
+            container.add(star);
+        }
+        
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        document.getElementById("animacion").onchange = animacionCheckbox;   
+
+        var renderer = new THREE.WebGLRenderer({ alpha: true });
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        renderer.shadowMap.enabled = true;
+        document.body.appendChild(renderer.domElement);
+        
+        // CONTENEDOR
+        var container = new THREE.Object3D();
+        scene.add(container);
+
+        var container1 = new THREE.Object3D();
+        scene.add(container1);
+
+        arbol();
+
+        estrella();
+        var lightSphereGeometry = new THREE.SphereGeometry(1);
+        var v = [
+         new THREE.MeshBasicMaterial({ color: 0xFF0000 }),
+         new THREE.MeshBasicMaterial({ color: 0x000FFF}),
+         new THREE.MeshBasicMaterial({ color: 0x1FFF00 }),
+         new THREE.MeshBasicMaterial({ color: 0xFFFF00  })
+        ];
+        
+        var Frojo = new THREE.MeshBasicMaterial({ color: 0xFF0000 });
+
+        function foco(r,alt,z,k){
+            var col = v[k];
+            var lightSphere = new THREE.Mesh(lightSphereGeometry, col);
+            lightSphere.position.set(r,alt,z);
+            container.add(lightSphere);
+        }
+        for(var i= 1; i < 10; i++){
+            var r = 3+(i*2) - 1.8;
+            var alt = 40-(i*5);
+            var k = Math.floor(Math.random() * 5);
+            foco(r,alt,0,(k+0)%4);
+            foco(-r,alt,0,(k+1)%4);
+            // foco(0,alt,-r,(k+2)%4);
+            // foco(0,alt,r,(k+3)%4);  
+            
+        }
+        var geometry = new THREE.CylinderGeometry( 5, 5, 20, 32 ); 
+        var material = new THREE.MeshBasicMaterial( {color: 0xB16D2D} ); 
+        var cylinder = new THREE.Mesh( geometry, material ); 
+        cylinder.position.set(0,-5,0)
+        scene.add( cylinder );
+
+        // LIGHT
+        var light = new THREE.DirectionalLight(0xffffff, 1, 10);
+        light.position.set(0, 10, 0);
+        light.castShadow = true;
+        scene.add(light);
+        
+        camera.position.x = 0;
+        camera.position.y = 10;
+        camera.position.z = 70;
+
+        // Animar la posición del cubo
+        function animate() {
+            requestAnimationFrame(animate);
+ 
+            if (sw == 1) {
+                // container.rotation.x += 0.01;
+                container.rotation.y += 0.01;
+                // container.rotation.z += 0.01;
+            }
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+
+</html>
